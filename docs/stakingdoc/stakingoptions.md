@@ -1,40 +1,44 @@
-# Staking 101
-The Keep Network is a proof of stake system. In order to earn rewards, you must participate in the network by staking KEEP tokens and validating the network.
-## Overview
-There are two ways to participate as a staker: you can stake KEEP tokens and run the Random Beacon client, or stake KEEP and bond ETH running the t-ECDSA client (the tBTC system). You can also elect to do both.
+# Abstecken 101
+Keep Network ist ein nützlicher Einsatz. Um Belohnungen zu erhalten, müssen Sie am Keep Network teilnehmen, indem Sie KEEP-Token platzieren.
+## Überblick
+Es gibt zwei Möglichkeiten, als Staker teilzunehmen: Sie können KEEP-Token einsetzen und den Random Beacon-Client ausführen, oder Sie können KEEP und ETH mit dem t-ECDSA-Client (tBTC-System) einsetzen. Sie können auch beide auswählen.
 
-Firstly, you'll need to delegate KEEP tokens. You’ll be able to delegate both locked and unlocked KEEP to a staking address or a staking provider immediately after receiving your token grant. A token grant contains KEEP tokens that unlock at a set schedule over a period of time.
-## Ways to Stake
-### Staking with a Provider
-Many of you are already set up with a staking provider through other networks you stake for. We’re happy to work with your preferred providers, but we have Figment, Staked, Bison Trails, and Blockdaemon already set up on testnet and prepared to work with clients. 
-- Figment Networks, Yannik Folla (yannick@figment.network) 
+Zunächst müssen Sie KEEP-Token delegieren. Sie können sowohl gesperrte als auch entsperrte KEEP-Token unmittelbar nach Erhalt Ihres Tokens an die Absteckadresse oder den Absteckanbieter delegieren. Gesperrte KEEP-Token werden nach einem festgelegten Zeitplan entsperrt.
+## Absteckmethoden
+### Abstecken bei einem Anbieter
+Bereits im Testnetz konfiguriert und einsatzbereit:
+- Figment Networks, Yannik Folla (yannick@figment.network)
 - Staked, Tim Ogilvie (togilvie@staked.us)
 - Bison Trails, Viktor Bunin (viktor@bisontrails.co)
-- Blockdaemon, Konstantin Richter (konstantin@blockdaemon.com) 
+- Blockdaemon, Konstantin Richter (konstantin@blockdaemon.com)
 
 
-Please reach out to your staking provider rep and they’ll start to get you onboarded, and let us know if you need recommendations or introductions.
+Wenden Sie sich an die Anbieter, die Ihnen dabei helfen, sich zu engagieren, und teilen Sie uns mit, ob Sie Unterstützung oder Hilfe benötigen.
 
 
-### Staking In-House
-If you’re staking in-house, you should running one or both nodes.
+### Abstecken zu Hause
+Wenn Sie zu Hause setzen, müssen Sie einen oder mehrere Knoten ausführen.
 
-The **Node Operation Section** includes all support documentation in order to :
+** Betrieb von Knoten **, einschließlich aller unterstützenden Dokumentationen:
 
-- [Deploy your Nodes](Node-Operation/deploy.md)
-- [Manage your Nodes](Node-Operation/manage.md)
-- [Troubleshooting](Node-Operation/troubleshooting.md)
-- [Monitoring and Remote Alerting](Node-Operation/monitoring.md)
-- [Risk Mitigation](Node-Operation/risks.md)
+- [Starten eines Knotens] (Node-Operation / deploy.md)
+- [Knotenverwaltung] (Node-Operation / manage.md)
+- [Fehlerbehebung] (Node-Operation / Troubleshooting.md)
+- [Überwachung und Alarmierung] (Node-Operation / Monitoring.md)
+- [Risikominderung] (Node-Operation / risks.md)
 
-For further support, use Discord and see Keep Network's GitHub documentation.
+Weitere Unterstützung verwenden Sie Discord und lesen Sie die GitHub-Dokumentation von Keep Network.
 
-### Using Keep Token dApp
-The Keep Token Dashboard handles everything you’ll need to manage your token grants, staking delegation, and rewards. 
-It let’s you: 
-- Claim your token grants (in Testnet)
-- Set up the different roles (authorizer, operator, beneficiary) for staking
-- Delegate stake to an operator (staking provider) 
-- Track and accept rewards 
+### Verwenden von Keep Token dApp
+Das Keep Token Dashboard verwaltet alles, was Sie zum Verwalten von Token-Zuschüssen, Absteckdelegationen und Belohnungen benötigen.
+So können Sie:
+- Holen Sie sich Ihre Token-Zuschüsse (auf testnet)
+- Konfigurieren Sie verschiedene Rollen (Autorisierer, Bediener, Empfänger) für das Abstecken
+- Delegieren Sie den Anteil an den Betreiber (Anbieter)
+- Verfolgen und akzeptieren Sie Auszeichnungen
 
-`Sourced from Keep Team's official documentation and edited by community.`[Source](https://keep-network.gitbook.io/staking-documentation/)
+[Quelle (Englisch)] (https://keep-network.gitbook.io/staking-documentation/)
+`Quelle aus der offiziellen Keep Team-Dokumentation, die von der Community bearbeitet und hinzugefügt wurde. '[Quelle] (https://keep-network.gitbook.io/staking-documentation/) `
+
+"Autoren: Ramaruro, EstebanK"
+`Übersetzung: nadyakriy`
