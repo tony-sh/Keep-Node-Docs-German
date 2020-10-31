@@ -1,53 +1,51 @@
-# Slashing and Liquidation
-Slashing in the Keep and tBTC systems is not designed to be punitive, and is rather to protect the security of the network from malicious behaviors.
-## What is Slashing?
-A slash is a penalty for signing group misbehavior. It results in the removal of a portion of your delegated KEEP tokens (usually one minimum stake). If you’re using a staking provider, you shouldn’t need to worry about slashing.
+# Reduzierung und Beseitigung
+Die Abkürzung in Keep- und tBTC-Systemen soll nicht bestrafen, sondern die Netzwerksicherheit vor böswilligem Verhalten schützen.
+## Was ist Abkürzung?
+Downsizing ist eine Strafe für Fehlverhalten von Gruppen. Dadurch wird ein Teil Ihrer delegierten KEEP-Token entfernt (normalerweise ein Mindestgebot). Wenn Sie einen Absteckanbieter verwenden, müssen Sie sich keine Gedanken über Kürzungen machen.
+Kontraktionsvektoren sind minimal und nur dann strafbar, wenn der Verdacht auf böswilliges Verhalten besteht. Solange die Random Beacon-Gruppe (64 Unterzeichner) die Aufzeichnung erstellt, werden Sie nicht beschnitten, wenn Sie Ausfallzeiten hatten und Teil der Gruppe waren, die für die Erstellung der Aufzeichnung ausgewählt wurde.
 
-Slashing vectors are kept minimal, and only seriously punitive in nature if malicious behavior is suspected. As long as a Random Beacon group (64 members) produces an entry, you won't be slashed if you had down time and were part of the group selected to produce an entry. 
+Das verringerte Verfügbarkeitsrisiko korreliert mit der Anzahl der gespeicherten Gruppen oder Unterzeichnergruppen, zu denen jeder Betreiber (Kunde) gehört.
 
-Slashing exposure as it relates to uptime is correlated to the number of keeps or signing groups each operator (running client) is a part of.
+## Abkürzungsvektoren in Keep
+Angenommen, Sie haben 500.000 KEEP.
 
-## Keep Slashing Vectors
-Say you have 500,000 KEEP.
+Sie können alle Ihre Eier (Delegierter) in einen Korb legen (Betreiber / Kunde). Dies bedeutet, dass jede von Ihnen ausgewählte Unterzeichnergruppe verfügbar ist. In diesem Szenario berechnen Sie alle Ihre 500.000 KEEPs pro Kunde.
 
-You can put all your eggs (KEEP) in one basket (operator/running client). This means that any keep (signing group) you’re selected for is assigned to this client. In this scenario, you’re exposing all of your 500k KEEP to a single client being up. 
+Angenommen, Ihr Kunde gehört 10 Unterzeichnergruppen an, und 3 dieser Gruppen erhalten einen Anruf, während Sie nicht arbeiten. In diesen Fällen erfolgt keine Eingabe und der Mindesteinsatz wird um das Dreifache reduziert.
 
-Let’s say your client goes down, it’s part of 10 signing groups and 3 of those groups get called while you’re down. Relay entry is not produced in those instances, and you get slashed your minimum stake 3 times.
+Nun, wie Matt gerne betont ... Nehmen wir an, Sie haben Ihre Eier (KEEP) auf mehrere Körbe (Betreiber / arbeitende Kunden) verteilt, mit einem Mindestgebot (100.000) pro Kunde. Sie befinden sich jetzt in einer Situation, in der die gespeicherten Gruppen oder Unterzeichnergruppen, an denen Sie teilnehmen, auf 5 eindeutige Clients im Netzwerk verteilt sind. Dies sollte die Wahrscheinlichkeit verringern, dass Sie abgelehnt werden, indem Sie eine Sicherungsgruppe oder Signatur auf mehrere Clients verteilen.
 
-Now, as Matt likes to point out… say you have your eggs (KEEP) spread across many baskets (operators/running clients) at an amount of minimum stake (100k) for each client. Now you’re in a situation where the keeps or signing groups you're participating in are spread across 5 unique clients on the network. This should reduce the probability that you get slapped for being down because of the keep or signing group distribution across several clients.
-
-If there’s a data center outage, all your clients are down and you’re still fucked in the spirit of the first scenario in this post.
-
-There’s also a component of operational capabilities playing a role in how many clients you can/should run. If you’re running keep clients as part of a pet project and you’re a 1 person show with 1M KEEP, it may be more trouble than it’s worth running 10 keep clients at minimum stake.  Maybe you run a couple clients at a time with minimum stake and top them up if something goes sideways and you get slashed.
-
-## tBTC Slashing Vectors
-In tBTC, slashing only occurs in the case of malicious behavior, ie. if the signers walk away with the Bitcoin. There are penalties however for non-availability.
-
-There are timeouts around requested operations like redemption that can lead to bond seizure and liquidation. In the Keep system you lose 1 minimum KEEP stake if enough of your signing group is unavailable to produce an entry when selected. In tBTC, you lose your whole ETH bond if you're not available when needed. 
-
-The risks of staking ETH on tBTC are mostly FX related risks. Compared to staking with the random beacon client, tBTC’s t-ECDSA has some additional off-chain things that require management. The primary scenario here is preventing a fall into liquidation if the ETH price takes a massive dip comparable to BTC. If ETH to BTC takes a big drop, you need to be prepared to redeem your deposit and participate in any auctions to avoid slippage We have some internal scripts to do that, and are working on publishing maintainer proofs of concept after mainnet. This will be  solved before the June 8th stakedrop, but a few bigger ETH signers are working with us in the meantime to make sure scripts are in a good spot here. 
-
-“Slashing” of an ETH bond is called liquidation in the tBTC system, and there are many warnings and opportunities to prevent liquidation long before the auction begins. 
-
-## tBTC - BTC/ETH Courtesy Calls & Liquidation
-tBTC liquidation in such a case happens as a slow long falling price auction. Liquidation is triggered early and intentionally as a way to allow you to exit the auction without much slippage. So the biggest risk in tBTC liquidation would be losing a few basis points on the slippage. (You can also write a contract to automate this auction piece for you.) 
-
-When there’s a liquidation ‘courtesy call', once your bond becomes undercollateralized at 125%, the system isn’t designed for stakers to come and top off their bonds with more ETH. Instead, any one of the signers in a set has the ability to and pull out and close the deposit. You’ll want to set maintainer scripts to get alerts when BTC/ETH collateralization hits this ‘courtesy call’, please reach out to the Keep team for support if needed. This liquidation/auction process will be all automated by the June 8th 2020 stakedrop. 
-
-Slashing for downtime in the tBTC system is quite lenient and effectively inconsequential for an advanced staker. We’ve built the down-time slashing parameters in human time, and it’s really more accurately described as availability parameters. If you happen to go down and not be available at the exact moment you get a ping for a signature request, you have between 6 and 24 hours to complete that request before you’re slashed.  
-
-Other risks? If the key material gets lost you get as extremely slashed as possible. Keeping Bitcoin safe from malicious behavior is the function of the system, so that’s why it’s the only truly punitive slashing parameter.
-
-## How closing out a tBTC deposit works 
-
-All deposit closing flows result in 1 TBTC going to the TDT owner. All minted TBTC comes from TDTs that are owned by the vending machine contract. The vending machine contract burns all TBTC it receives. So in redemption, you pay to redeem a deposit. The cost is 1 TBTC + signer fees (it's more complicated than that, but simplifies to this). That 1 TBTC goes to the TDT holder (unless the TDT holder is redeeming). 
-
-Similarly, in liquidation, bonds are used to buy 1 TBTC. That TBTC is sent to the TDT holder. If the TDT is backing TBTC, that TDT is owned by the vending machine (by definition---this is the only way to mint TBTC), and the vending machine will burn the TBTC sent for redemption or liquidation, thus balancing the supply peg.
+Wenn ein Rechenzentrumsfehler auftritt, werden alle Ihre Clients offline geschaltet, und Sie müssen immer noch im Geiste des ersten Szenarios in diesem Beitrag leiden.
 
 
-`Sourced from Keep Team's official documentation.`[Source](https://keep-network.gitbook.io/staking-documentation/)
+## Vektoren von tBTC-Abkürzungen
+In tBTC tritt die Kürzung nur im Fall von böswilligem Verhalten auf, d.h. wenn Unterzeichner mit Bitcoins abreisen. Es gibt jedoch Strafen für Nichtverfügbarkeit.
 
-## More on this :
-- State Layer's [Keep stakedrop risks document](https://hackmd.io/@LayerState/KeepStakedropRisks)
-- Risk Mitigation on this site [here](Node-Operation/risks.md)
+Es gibt Zeitüberschreitungen für angeforderte Transaktionen, wie z. B. Rücknahmen, die dazu führen können, dass Anleihen beschlagnahmt und liquidiert werden. Im Keep-System verlieren Sie mindestens 1 KEEP, wenn nicht genügend Unterzeichnergruppen verfügbar sind, um bei Auswahl einen Datensatz zu erstellen. In tBTC verlieren Sie alle Ihre ETH-Sicherheiten, wenn Sie bei Bedarf nicht verfügbar sind.
 
+Die Risiken einer Platzierung der ETH auf tBTC hängen hauptsächlich mit Währungsrisiken zusammen. Im Vergleich zum Einsatz mit einem zufälligen Random Beacon verfügt t-ECDSA tBTC über einige zusätzliche Funktionen außerhalb der Kette, die gesteuert werden müssen. Das Hauptszenario besteht darin, eine Liquidation zu verhindern. Wenn der Preis der ETH stark sinkt, vergleichbar mit BTC, müssen Sie bereit sein, Ihre Einzahlung einzulösen und an Auktionen teilzunehmen, um einen "Flop" zu vermeiden. Wir haben einige interne Skripte dafür. Dieses Problem wird bis zum 8. Juni behoben sein, aber einige der größeren ETH-Unterzeichner arbeiten mit uns zusammen, um sicherzustellen, dass die Skripte hier hervorragend funktionieren.
+
+Die „Reduzierung“ der ETH-Sicherheiten wird im tBTC-System als Liquidation bezeichnet, und es gibt viele Warnungen und Möglichkeiten, die Liquidation rechtzeitig vor der Auktion zu verhindern.
+
+## tBTC - Liquidation der BTC / ETH
+In diesem Fall erfolgt die Liquidation von tBTC in Form einer langsamen langfristigen Auktion mit fallendem Preis. Die Liquidation wird frühzeitig und absichtlich gestartet, damit Sie die Auktion ohne wesentlichen "Fehler" beenden können. Das größte Risiko bei einer tBTC-Liquidation wäre daher der Verlust einiger Basispunkte aufgrund eines "Einbruchs".
+
+Wenn Ihre Sicherheiten in Liquidation mit 125% unterbesichert sind, werden Sie vom System von Teilnehmern abgeschnitten, die kommen und ihre Sicherheiten mit zusätzlicher ETH auffüllen. Jeder der Unterzeichner hat die Möglichkeit, die Anzahlung abzuheben und zu schließen.
+
+Die Reduzierung der Ausfallzeiten im tBTC-System ist recht gering und für einen fortgeschrittenen Staker nahezu vernachlässigbar. Wenn Sie bei Erhalt Ihrer Signaturanfrage nicht verfügbar sind, haben Sie 6 bis 24 Stunden Zeit, um die Anfrage zu bearbeiten, bevor Sie verkleinert werden.
+
+Der Schutz von Bitcoin vor böswilligem Verhalten ist eine Funktion des Systems. Daher ist die Kontraktion der einzig wirklich wirksame Parameter.
+
+## Wie die Schließung von tBTC-Einzahlungen funktioniert
+
+Alle Optionen zum Schließen von Einzahlungen führen dazu, dass 1 TBTC an den TDT-Inhaber übertragen wird. Alle abgebauten TBTCs stammen von TDT. Die Kosten betragen 1 TBTC + Signiergebühr (schwierig, aber vereinfacht). Dieser 1 TBTC geht an den TDT-Halter (es sei denn, der TDT-Halter kauft ihn zurück).
+
+
+`Entnommen aus der offiziellen Dokumentation von Keep Team.` [Quelle] (https://keep-network.gitbook.io/staking-documentation/)
+
+## Mehr Informationen :
+- State Layer [Dokument über Stakedrop-Risiken aufbewahren] (https://hackmd.io/@LayerState/KeepStakedropRisks)
+- Risikominderung auf dieser Website [hier (Englisch)] (Node-Operation / risks.md)
+
+"Autoren: Ramaruro, EstebanK"
+`Übersetzung: nadyakriy`
