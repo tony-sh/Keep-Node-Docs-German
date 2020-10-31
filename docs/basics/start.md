@@ -1,27 +1,27 @@
-
-![Intro](/assets/images/keepdocgraf.jpg)
-
-
-# Getting Started
-In this guide, you'll find all the information you need to stake on the Keep Network and start earning rewards.
-
-## Basic Description - tl;dr
-The Keep Network's native token, a KEEP, powers the network and undergirds all the apps that are and will be built on it. Anyone with KEEP tokens can stake them, setting them aside as collateral for Keep Network operations.
-
-Staked tokens are delegated by a KEEP token holder to an operator address, who performs work on the network. This work contribution is rewarded, but if an operator misbehaves and doesn't follow their operator contract, their collateral can be taken away (stake slashing) as punishment.
+! [Intro] (/ assets / images / keepdocgraf.jpg)
 
 
-## Contents
+# Am Anfang
+In diesem Handbuch finden Sie alle Informationen, die Sie benötigen, um ein Keep Network Staker zu werden und Belohnungen zu verdienen.
 
-- [Introduction](basics/intro.md) : Intro and context to Keep and tBTC.
-- [Key Reasons for Staking in Keep Network:](Reasons/reasons.md) Understand why it is meaningful to stake in Keep Network.
-- [Comparison with Other Alternatives:](comparison/comparesimilar.md) Compare Keep Staking with other staking alternatives currently available in crypto.
-- [Staking Documentation:](stakingdoc/keep101.md) Official Keep Team's documentation about staking. 
-- [Staking Options:](stakingdoc/stakingoptions.md) With staking partners or on your own node running on a server.
-- [Node Operation:](Node-Operation/intro-operation.md) Deploy, Manage, Troubleshoot your own node.
-- Keep Token Dashboard: Token Dashboard official user guide.
+## Allgemeine Beschreibung - tl; dr
+KEEP ist das Haupt-Token des Keep Network. Alle Anwendungen im Web werden oder werden darauf aufgebaut. Jeder Besitzer von KEEP-Token kann diese als Sicherheit einsetzen, um das Funktionieren des Keep-Netzwerks sicherzustellen.
 
----
-`Sourced from Keep Team's official documentation and edited & completed by community.`[Source](https://keep-network.gitbook.io/staking-documentation/)
+Festgefahrene Token werden vom Eigentümer von KEEP an die Adresse des Betreibers delegiert, der seinerseits Arbeiten im Netzwerk ausführt. Diese Arbeit wird belohnt, aber wenn sich der Bediener unehrlich verhält und seinen Verpflichtungen nicht nachkommt, können alle delegierten Token als Strafe (Hieb) weggenommen werden.
 
-`Contributors: Ramaruro, EstebanK`
+
+## Inhalt
+
+- [Einführung:] (Grundlagen / intro.md): Einführung in Keep Network und tBTC.
+- [Hauptgründe für den Einsatz bei Keep Network:] (Reasons / reason.md) Verstehen Sie, warum es sinnvoll ist, auf Keep Network zu wetten.
+- [Vergleich mit Alternativen:] (compare / compareesimilar.md) Vergleiche Keep Staking mit Alternativen, die derzeit in Kryptowährung verfügbar sind.
+- [Absteckdokumentation:] (stakingdoc / keep101.md) Bewahren Sie die offizielle Dokumentation des Teams zum Abstecken auf.
+- [Absteckoptionen:] (stakingdoc / stakingoptions.md) Mit Partnern oder auf Ihrem eigenen Server (Knoten).
+- [Varianten von Knoten:] (Node-Operation / intro-operation.md) Starten, verwalten und beheben Sie Fehler auf Ihrem eigenen Knoten.
+- https://dashboard.keep.network/ Offizielles Dashboard des Keep Network.
+
+--- ---.
+`Quelle aus der offiziellen Keep Team-Dokumentation, die von der Community bearbeitet und hinzugefügt wurde. '[Quelle] (https://keep-network.gitbook.io/staking-documentation/) `
+
+"Autoren: Ramaruro, EstebanK"
+`Übersetzung: nadyakriy`
